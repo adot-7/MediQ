@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Available Beds</title>
+{% endblock %}
+{% block navbar %}
+{% comment %} <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url "home" %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="">Available Beds</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Hospital Login</a>
+  </li>
+</ul> {% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "home" %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">Available Beds</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Hospital Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %} {% block content %}
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>S. No.</th>
+      <th>Hospital</th>
+      <th>Available Beds</th>
+      <th>Last Updated</th>
+      <th>Contact</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for hospital in hospitals %}
+    <tr>
+      <td>{{hospital.id}}</td>
+      <td>{{hospital.name}}</td>
+      <td>{{hospital.available_beds}}</td>
+      <td>{{hospital.last_update}}</td>
+      <td>{{hospital.contact}}</td>
+      <td>{{hospital.location}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
