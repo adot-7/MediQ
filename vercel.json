@@ -1,13 +1,19 @@
 {
-    "builds": [{
+    "builds": [
+      {
         "src": "hosman/wsgi.py",
-        "use": "@vercel/python",
-        "config": {"maxLambdaSize": "15mb", "runtime": "python3.12.5"}
-    }],
+        "use": "@vercel/python"
+      }
+    ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "hosman/wsgi.py"
-        }
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": "(.*)",
+        "dest": "hosman/wsgi.py"
+      }
     ]
-}
+  }
+  
