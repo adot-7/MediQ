@@ -86,15 +86,6 @@ WSGI_APPLICATION = 'hosman.wsgi.application'
 
 DATABASES = {
     'default':  dj_database_url.config(default=os.getenv('DATABASE_URL'))
-
-    # {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': os.getenv('PGDATABASE'),
-    #     'USER': os.getenv('PGUSER'),
-    #     'PASSWORD': os.getenv('PGPASSWORD'),
-    #     'HOST': os.getenv('HOST'),
-    #     'PORT': os.getenv('PORT'),
-    # }
 }
 
 # Security settings
