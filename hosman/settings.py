@@ -90,8 +90,8 @@ DATABASES = {
         'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': os.getenv('PGPASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT'),
+        'HOST': 'meticulous-empathy.railway.internal',
+        'PORT': 'OZqVBDAZKImqlMigStnPWXdzoEdHgkbs,
     }
 }
 
