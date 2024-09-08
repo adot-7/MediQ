@@ -12,6 +12,7 @@ t.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 #not needed cause vercel env. 
 #import dj_database_url
@@ -84,14 +85,16 @@ WSGI_APPLICATION = 'hosman.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default':  {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('PGDATABASE'),
-        'USER': os.getenv('PGUSER'),
-        'PASSWORD': os.getenv('PGPASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT'),
-    }
+    'default':  dj_database_url.config(default=os.getenv('DATABASE_URL'))
+
+    # {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.getenv('PGDATABASE'),
+    #     'USER': os.getenv('PGUSER'),
+    #     'PASSWORD': os.getenv('PGPASSWORD'),
+    #     'HOST': os.getenv('HOST'),
+    #     'PORT': os.getenv('PORT'),
+    # }
 }
 
 # Security settings
