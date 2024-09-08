@@ -14,6 +14,9 @@
         "src": "(.*)",
         "dest": "hosman/wsgi.py"
       }
-    ]
+    ],
+    "commands": {
+    "build": "python manage.py collectstatic --noinput"
+    }
   }
   
