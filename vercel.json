@@ -16,7 +16,7 @@
       }
     ],
     "commands": {
-    "build": "python manage.py collectstatic --noinput"
+    "build": "python3 manage.py collectstatic --noinput"
     }
   }
   
