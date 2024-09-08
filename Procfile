@@ -1,1 +1,1 @@
-web: gunicorn hosman.wsgi --log-file -
+web: gunicorn hosman.wsgi 

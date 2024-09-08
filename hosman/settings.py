@@ -14,9 +14,10 @@ import os
 from pathlib import Path
 
 #not needed cause vercel env. 
-import dj_database_url
+#import dj_database_url
 from dotenv import load_dotenv
 load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,11 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-
+SECRET_KEY = 'django-insecure-2giciol1k#=)o@^gs&rd(9xxkcjt%6hdks+_17l3&1$_@i9peo'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['.vercel.app','.railway.app', 'localhost', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['.railway.app']
 
 
 # Application definition
@@ -83,13 +85,20 @@ WSGI_APPLICATION = 'hosman.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default':  dj_database_url.config(conn_max_age=600, ssl_require=True)
-
+    'default':  {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': os.getenv('PGPASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT'),
+    }
 }
+
 # Security settings
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
