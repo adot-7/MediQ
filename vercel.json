@@ -15,8 +15,8 @@
         "dest": "hosman/wsgi.py"
       }
     ],
-    "hooks": [{
+    "commands": {
     "build": "python manage.py collectstatic --noinput"
-    }]
+    }
   }
   
