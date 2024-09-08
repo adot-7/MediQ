@@ -1,52 +1,331 @@
 {% extends "base.html" %} {% block head %}
-<title>HosMan</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="MediQ - Hospital Management System" />
+<meta name="theme-color" content="#004085" />
+<title>MediQ Hospital Management</title>
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+  rel="stylesheet"
+/>
+<!-- Bootstrap CSS -->
+<link
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<!-- Custom CSS -->
 <style>
-  /* Add any custom styles here */
-  @media (max-width: 768px) {
-    .table-responsive {
-      overflow-x: auto;
-    }
-    .navbar-nav {
-      text-align: center;
-    }
-    .navbar-nav .nav-item {
-      margin: 0.5rem 0;
-    }
+  :root {
+    --primary-color: #004085;
+    --secondary-color: #0069d9;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --white-color: #fff;
+    --info-color: #17a2b8;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+  }
+
+  .navbar {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+      url("https://images.unsplash.com/photo-1584036561584-b03c19da874c")
+        no-repeat center center;
+    background-size: cover;
+  }
+
+  .navbar-brand {
+    color: black;
+    font-weight: 700;
+  }
+
+  .navbar-nav .nav-link {
+    color: #000;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: var(--secondary-color);
+  }
+
+  .hero-section {
+    background: linear-gradient(
+        rgba(167, 192, 219, 0.9),
+        rgba(11, 32, 147, 0.9)
+      ),
+      url("https://images.unsplash.com/photo-1584036561584-b03c19da874c")
+        no-repeat center center;
+    background-size: cover;
+    color: var(--white-color);
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .btn-primary {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+  }
+
+  .dashboard-explorer,
+  .features,
+  .contact {
+    padding: 3rem 0;
+  }
+
+  .dashboard-explorer h2,
+  .features h2,
+  .contact h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+  }
+
+  .card,
+  .feature-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover,
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-control {
+    border-radius: var(--border-radius);
+  }
+
+  footer {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+
+  footer p {
+    margin: 0;
   }
 </style>
 {% endblock %} {% block navbar %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'beds_avail:beds_avail_home' %}"
-            >Available Beds</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Hospital Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-      </ul>
-    </div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#">
+    <img
+      src="https://img.freepik.com/premium-vector/vector-illustration-heart-shape-drops-blood-symbol-limitless-healthcare-medical-treatment-conceptual-logo-use-medical-care-advertisement_570429-36243.jpg"
+      alt="MediQ Logo"
+      height="40"
+    />
+    MediQ
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'beds_avail:beds_avail_home' %}"
+          >Available Beds</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Hospital Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
   </div>
 </nav>
+{% endblock %} {% block content %}
 
-{% endblock %} {% block content %} {% endblock %}
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="container">
+    <h1>Delhi Hospitals Management</h1>
+    <p>
+      A web app made by students at USICT for city wide Hospital Management.
+    </p>
+  </div>
+</section>
+
+<!-- DASHBOARD EXPLORER -->
+<section class="dashboard-explorer">
+  <div class="container">
+    <h2>Current Features</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <h4>Real Time Bed Availability</h4>
+          <p>
+            Look for emergency beds available in various hospitals managed by
+            hospital administrations in Delhi.
+          </p>
+          <a href="{% url 'beds_avail:beds_avail_home' %}">Check it out</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h4>Decentralised Data Handling</h4>
+          <p>
+            Hospital Administrations can update their data such as total beds
+            available, currently vacant beds and contact.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h4>Always Up</h4>
+          <p>This web app is resource efficient, making it more reliable</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features bg-light">
+  <div class="container">
+    <h2>Our Upcoming Features</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Medicine Stock</h3>
+          <h2>💊</h2>
+          <p>
+            Lets Hospital Admins edit their medicine stock and also view other
+            hospitals' medicine stock
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Inventory Trade</h3>
+          <h2>🤝</h2>
+          <p>
+            To prevent stockouts or overstocking, drugs can be transferred to
+            other hospitals which are low on them from surplus ones.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Regional Telemedicine</h3>
+          <h2>👨‍⚕️</h2>
+          <p>
+            So patients in Delhi can quickly connect to doctors in the nearby
+            hospitals and doctors can prescribe medicine and out system will
+            deliver those medicine through other agents. Making travel time and
+            expenditure non-existent.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features bg-light">
+  <div class="container">
+    <h2>Our Impact</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Interconnected system of Hospitals in Delhi</h3>
+          <p>
+            We create a web of hospitals in delhi, allowing them to communicate
+            with each other regarding drug inventory and how to manage them.
+            This system has never been implemented in Delhi, or India in
+            general.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Lookout for patient admission</h3>
+          <p>
+            We allow any user to check the latest beds Availability in Delhi
+            hospitals so that they can contact and get their dear ones admitted
+            in different situations.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Better revenue for hospitals connected with us</h3>
+          <p>
+            Faster Patient Admission and future Telemedicine service can only
+            increase the revenue of hospitals by cuttting resource expenditure.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CONTACT SECTION 
+<section class="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          placeholder="Enter your name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter your email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          class="form-control"
+          rows="4"
+          placeholder="Enter your message"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-light">Send Message</button> 
+    </form>
+  </div>
+</section>-->
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2024 MediQ. All rights reserved.</p>
+</footer>
+{% endblock %}
