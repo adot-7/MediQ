@@ -1,19 +1,15 @@
 {
-    "builds": [
-      {
-        "src": "hosman/wsgi.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
-        "src": "(.*)",
-        "dest": "hosman/wsgi.py"
-      }
-    ]
-  }
+  "builds": [
+    {
+      "src": "hosman/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "(.*)",
+      "dest": "hosman/wsgi.py"
+    }
+  ]
+}
   
