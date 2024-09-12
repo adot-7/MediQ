@@ -5,6 +5,7 @@
 ## **Key Features**
 Current:
 - **Bed Availability Tracking**: Real-time updates on bed availability across different wards and departments within the hospital.
+
 Upcoming:
 - **Patient Queuing System**: Efficiently manage patient queues in Outpatient Departments (OPDs) to reduce wait times and improve service delivery.
 - **Patient Admissions**: Simplified process for patient admissions, including data entry and tracking.
