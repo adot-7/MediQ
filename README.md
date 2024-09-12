@@ -3,9 +3,10 @@
 **MediQ** is a comprehensive hospital management web application developed for the Smart India Hackathon (SIH) 2024. This application aims to streamline hospital operations by offering solutions for various aspects of hospital management, including patient queuing, bed availability, admissions, and inventory management.
 
 ## **Key Features**
-
-- **Patient Queuing System**: Efficiently manage patient queues in Outpatient Departments (OPDs) to reduce wait times and improve service delivery.
+Current:
 - **Bed Availability Tracking**: Real-time updates on bed availability across different wards and departments within the hospital.
+Upcoming:
+- **Patient Queuing System**: Efficiently manage patient queues in Outpatient Departments (OPDs) to reduce wait times and improve service delivery.
 - **Patient Admissions**: Simplified process for patient admissions, including data entry and tracking.
 - **Inventory Management**: Monitor and manage hospital inventory to ensure adequate supplies and prevent shortages.
 - **Hospital Login**: Secure login feature for hospital staff to update bed availability and view inventory details.
