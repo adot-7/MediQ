@@ -22,13 +22,13 @@
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/mediQ.git
+    git clone https://github.com/akash-2004/HosMan
     ```
 
 2. **Navigate to the project directory:**
 
     ```bash
-    cd mediQ
+    cd HosMan
     ```
 
 3. **Install the dependencies:**
